@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>S.I.L.T. Co. // EMPLOYEE ACCESS</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'VT323', monospace;
+      background: black;
+      color: #14ffec;
+      overflow: hidden;
+    }
+
+    .crt {
+      text-shadow: 0 0 5px #14ffec, 0 0 10px #14ffec;
+      line-height: 1.5;
+    }
+
+    .login-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    .login-screen h1 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .terminal-box {
+      background: rgba(0,0,0,0.4);
+      padding: 2rem;
+      border: 2px solid #14ffec;
+      width: 300px;
+      text-align: left;
+    }
+
+    .terminal-box input {
+      background: black;
+      color: #14ffec;
+      border: none;
+      font-family: 'VT323', monospace;
+      font-size: 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .terminal-box input:disabled {
+      color: #14ffec;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .portal {
+      padding: 2rem;
+      display: none;
+    }
+
+    .glitch {
+      animation: glitchText 1.5s infinite;
+    }
+
+    @keyframes glitchText {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; transform: translateX(-1px); }
+      100% { opacity: 1; transform: translateX(1px); }
+    }
+
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.9; }
+    }
+
+    audio {
+      display: none;
+    }
+
+  </style>
+</head>
+<body class="crt">
+
+  <!-- Background Audio -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Login Screen -->
+  <div class="login-screen" id="login">
+    <h1 class="glitch">SILT Co. // Access Terminal</h1>
+    <div class="terminal-box">
+      <label>Username:</label><br>
+      <input type="text" value="PublicAccess01" disabled><br>
+      <label>Password:</label><br>
+      <input type="password" value="LettingGo" disabled><br>
+      <p><span class="glitch">Login successful.</span></p>
+    </div>
+  </div>
+
+  <!-- Main Portal -->
+  <div class="portal" id="portal">
+    <h2>Welcome, Agent [REDACTED]</h2>
+    <p>Memory Disruption Index: <strong>12.3%</strong></p>
+    <ul>
+      <li><a href="#" style="color:#14ffec;">📂 Case Files</a></li>
+      <li><a href="#" style="color:#14ffec;">📽️ Media Archive</a></li>
+      <li><a href="#" style="color:#14ffec;">🧬 Research Notes</a></li>
+      <li><a href="#" style="color:#14ffec;">📞 Emotional Emergency Hotline</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // Simulate login delay
+    setTimeout(() => {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('portal').style.display = 'block';
+    }, 5000); // 5-second delay
+  </script>
+
+</body>
+</html>
